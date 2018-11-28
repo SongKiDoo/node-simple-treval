@@ -11,16 +11,13 @@ var cookieParser = require('cookie-parser');
 var expressSession = require('express-session');
 
 // config 파일 불러오기(동기)
-var fs = require('fs');
-var config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
-
+let config = require('./config/config');
 
 // 익스프레스 객체 생성
 var app = express();
 
 // DB
 var db_module = require('./database/database.js');
-
 // 기본 속성 설정
 app.set('port', process.env.PORT || 20100);
 
@@ -40,17 +37,16 @@ app.use(expressSession({
     saveUninitialized:true
 }));
 
-
 // 라우팅 설정
 const routeConfig = require('./route/__config__');
 routeConfig(app);
 
-// 데이터베이스 객체를 위한 변수 선언
-// var database = db_module.database;
+//클라이언트에서 ajax로 요청 시 CORS(다중 서버 접속) 지원
+var cors = require('cors');
+app.use(cors());
 
 
 //===== 서버 시작 =====//
-
 // 프로세스 종료 시에 데이터베이스 연결 해제
 process.on('SIGTERM', function () {
     console.log("프로세스가 종료됩니다.");
@@ -59,16 +55,10 @@ process.on('SIGTERM', function () {
 
 app.on('close', function () {
     console.log("Express 서버 객체가 종료됩니다.");
-    // if (database) {
-    //     database.close();
-    // }
 });
 
 // Express 서버 시작
 http.createServer(app).listen(app.get('port'), function(){
     console.log('서버가 시작되었습니다. 포트 : ' + app.get('port'));
-
-    // db_module.connectDB();
-
 });
 
