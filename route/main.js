@@ -1,12 +1,20 @@
 var express = require('express');
 var router = express.Router();
-var db_module = require('../models/database');
+var models = require('../models/database');
+var jsonfiy = require('../seque-json');
 
 router.get('/', function (req, res) {
-    var database = db_module.database;
-
-    res.render('index.html', {
-        title: ""
+    models.travel_theme.findAll().then(function (theme_res) {
+        models.travel_cource.findAll().then(function (cource_res) {
+            res.render('index.html', {
+                theme_list : theme_res,
+                cource_list : cource_res
+            });
+        }).catch(err => {
+            console.error(err);
+        });
+    }).catch(err => {
+        console.error(err);
     });
 });
 

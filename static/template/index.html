@@ -30,8 +30,30 @@
 
     <div w3-include-html="nav.html"></div>
     <script>
-            w3.includeHTML();
+        var a = '<% theme_list %>';
+        var b = '<% cource_list %>';
+        console.log(a);
+        console.log(b);
     </script>
+
+    <% for(let post of theme_list) { %>
+    <tr>
+        <td><%= post.theme_id %></td>
+        <td><%= post.theme_name %></td>
+        <td><%= post.theme_image_url %></td>
+        <td><%= post.theme_hash_tag %></td>
+    </tr>
+    <% } %>
+
+    <% for(let post of cource_list) { %>
+    <tr>
+        <td><%= post.cource_id %></td>
+        <td><%= post.cource_name %></td>
+        <td><%= post.cource_hash_tag %></td>
+        <td><%= post.cource_image_url %></td>
+    </tr>
+    <% } %>
+
 
     <div class="slider-wrapper theme-mi-slider">
         <div id="slider" class="nivoSlider">

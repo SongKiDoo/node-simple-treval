@@ -10,6 +10,14 @@ module.exports = function(sequelize, DataTypes) {
 		cource_name: {
 			type: DataTypes.STRING(200),
 			allowNull: true
+		},
+		cource_hash_tag: {
+			type: DataTypes.STRING(200),
+			allowNull: true
+		},
+		cource_image_url: {
+			type: DataTypes.STRING(2000),
+			allowNull: true
 		}
 	}, {
 		tableName: 'travel_cource'

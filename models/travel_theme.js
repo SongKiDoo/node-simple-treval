@@ -14,6 +14,10 @@ module.exports = function(sequelize, DataTypes) {
 		theme_image_url: {
 			type: DataTypes.STRING(200),
 			allowNull: true
+		},
+		theme_hash_tag: {
+			type: DataTypes.STRING(1000),
+			allowNull: true
 		}
 	}, {
 		tableName: 'travel_theme'

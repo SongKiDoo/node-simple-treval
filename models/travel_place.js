@@ -38,6 +38,10 @@ module.exports = function(sequelize, DataTypes) {
 		place_long: {
 			type: DataTypes.STRING(45),
 			allowNull: true
+		},
+		place_hash_tag: {
+			type: DataTypes.STRING(1000),
+			allowNull: true
 		}
 	}, {
 		tableName: 'travel_place'
