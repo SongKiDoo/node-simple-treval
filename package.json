@@ -20,7 +20,8 @@
     "mysql": "",
     "mysql2": "",
     "sequelize": "",
-    "sequelize-auto": ""
+    "sequelize-auto": "",
+    "fs": ""
   },
   "main": "app.js",
   "author": "SongKiDoo",

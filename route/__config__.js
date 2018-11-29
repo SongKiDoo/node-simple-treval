@@ -8,6 +8,10 @@ let login = require('./login.js');
 let main = require('./main.js');
 let joinUs = require('./join-us.js');
 
+let apiLogin = require('../restful/login.js');
+let apiJoinUs = require('../restful/join-us.js');
+
+
 let routeSetting = function (app) {
 
     // 템플릿 엔진 설정
@@ -16,6 +20,8 @@ let routeSetting = function (app) {
     staticFolderSetting(app);
     // 사용자 라우팅 설정
     addResource(app);
+    // API 설정
+    addApiResource(app);
     // 에러페이지 설정
     errorPageSetting(app);
 };
@@ -46,6 +52,12 @@ let addResource = function(app) {
     // 로그인, 회원가입
     app.use('/login', login);
     app.use('/join-us', joinUs);
+};
+
+let addApiResource = function(app) {
+    app.use('/api/login', apiLogin);
+    app.use('/api/join-us', apiJoinUs);
+
 };
 
 module.exports = routeSetting;

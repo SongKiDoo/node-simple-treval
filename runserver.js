@@ -17,7 +17,7 @@ let config = require('./config/config');
 var app = express();
 
 // DB
-var db_module = require('./database/database.js');
+var db_module = require('./models/database.js');
 // 기본 속성 설정
 app.set('port', process.env.PORT || 20100);
 

@@ -20,12 +20,11 @@
        
     <div w3-include-html="nav.html"></div>
     <script>
-            w3.includeHTML();
     </script>
                
     <div class="container">
             <h4><b>JOIN US</b></h4>  
-            <form method="post" class="join-form" action="./userRegister">
+            <form method="post" name="join-form" class="join-form" action="location.origin + '/api/register'">
                 <table class="table table-bordered table-hover" style="text-align: center; border: 1px solid #dddddd">
                     <tbody>
                         <tr>
@@ -73,7 +72,10 @@
 
         <div w3-include-html="footer.html"></div>
         <script>
-                w3.includeHTML();
+            document.getElementsByName('join-form').action = location.origin + '/api/register_check';
+            // document.getElementsByName('join-form').action = location.origin + '/api/register';
+
+            console.log(document.getElementsByName('join-form'))
         </script>
 </body>
 
