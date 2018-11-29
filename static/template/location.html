@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="/static/css/swiper.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/js/jquery-numerator.js"></script>
+    <script src="/static/js/jquery.waypoints.min.js"></script>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+        function initialize() {
+            var mapLocation = new google.maps.LatLng('22.283858', '114.155140'); // 지도에서 가운데로 위치할 위도와 경도
+            var markLocation = new google.maps.LatLng('22.283858', '114.155140'); // 마커가 위치할 위도와 경도
+
+            var mapOptions = {
+                center: mapLocation, // 지도에서 가운데로 위치할 위도와 경도(변수)
+                zoom: 18, // 지도 zoom단계
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(document.getElementById("map-canvas"), // id: map-canvas, body에 있는 div태그의 id와 같아야 함
+                mapOptions);
+
+            var size_x = 60; // 마커로 사용할 이미지의 가로 크기
+            var size_y = 60; // 마커로 사용할 이미지의 세로 크기
+
+            // 마커로 사용할 이미지 주소
+            var image = new google.maps.MarkerImage('http://www.larva.re.kr/home/img/boximage3.png',
+                new google.maps.Size(size_x, size_y),
+                '',
+                '',
+                new google.maps.Size(size_x, size_y));
+
+            var marker;
+            marker = new google.maps.Marker({
+                position: markLocation, // 마커가 위치할 위도와 경도(변수)
+                map: map,
+                icon: image, // 마커로 사용할 이미지(변수)
+                //             info: '말풍선 안에 들어갈 내용',
+                title: '미드레벨 에스컬레이터' // 마커에 마우스 포인트를 갖다댔을 때 뜨는 타이틀
+            });
+
+            var content = "미드레벨 에스컬레이터"; // 말풍선 안에 들어갈 내용
+
+            // 마커를 클릭했을 때의 이벤트. 말풍선
+            var infowindow = new google.maps.InfoWindow({ content: content });
+
+            google.maps.event.addListener(marker, "click", function () {
+                infowindow.open(map, marker);
+            });
+
+            // counter
+            $(document).ready(function () {
+                var li = [$('#design'), $('#tech'), $('#support')];
+
+                $.each(li, function (k, val) {
+
+                    var value = val.attr('data-nums');
+                    var options = {};
+                    options['toValue'] = value;
+                    options['duration'] = 4000;
+
+                    val.numerator(options);
+
+                });
+
+
+            });
+
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+</head>
+
+<body>
+    <div w3-include-html="nav.html"></div>
+
+
+    <script>
+        w3.includeHTML();
+    </script>
+
+    <div class="counter">
+        <ul>
+            <li>
+                <img src="/static/img/like.png" alt="">
+                <p id="design" data-nums="20">0</p>
+                <h5>추천수</h5>
+            </li>
+            <li>
+                <img src="/static/img/blogging.png" alt="">
+                <p id="tech" data-nums="4">0</p>
+                <h5>댓글수</h5>
+            </li>
+
+            <li>
+                <img src="/static/img/favorites.png" alt="">
+                <p id="support" data-nums="3">0</p>
+                <h5>별점</h5>
+            </li>
+
+
+        </ul>
+
+
+    </div>
+
+
+
+    <div class="container">
+        <h4><b>미드레벨 에스컬레이터</b></h4>
+    </div>
+
+
+    <div class="location-img">
+        <img src="/static/img/recommend1.jpg">
+    </div>
+
+    <div class="detail-container">
+        <h4 style="background-color: #333; padding: 10px; margin-bottom: 0;">LOCATION</h4>
+        <div id="map-canvas" style="width:100%; height: 400px; text-align: center; "></div>
+
+
+    </div>
+
+    <div class="detail-container">
+        <h4 style="background-color: #333; padding: 10px; margin-bottom: 0;">REVIEW</h4>
+        <div class="detail-content">
+
+        </div>
+
+        <input type="submit" class="btn login-btn-primary form-control" value="리뷰등록하기">
+
+    </div>
+
+    <div w3-include-html="footer.html"></div>
+    <script>
+        w3.includeHTML();
+    </script>
+
+    <!-- Swiper JS -->
+    <script src="/static/js/swiper.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+    </script>
+</body>
+
+</html>
