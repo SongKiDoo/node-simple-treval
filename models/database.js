@@ -9,6 +9,14 @@ var config    = require('../config/config')['dbConfig'][env];
 var sequelize = new Sequelize(config.database, config.username, config.password, config);
 var db        = {};
 
+var SequelizeAuto = require('sequelize-auto');
+var auto = new SequelizeAuto(config.database, config.username, config.password, config.dbCodeGen);
+
+auto.run(function (err) {
+    if (err) throw err;
+});
+
+
 fs.readdirSync(__dirname).filter(function(file) {
         return (file.indexOf(".") !== 0) && (file !== "database.js");
     })
@@ -26,14 +34,5 @@ Object.keys(db).forEach(function(modelName) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-var SequelizeAuto = require('sequelize-auto');
-var auto = new SequelizeAuto(config.database, config.username, config.password, config.dbCodeGen);
-
-auto.run(function (err) {
-    if (err) throw err;
-
-    // console.log(auto.tables); // table list
-    // console.log(auto.foreignKeys); // foreign key list
-});
 
 module.exports = db;
