@@ -105,6 +105,7 @@
                 <div class="detail-text">
                     <h5><b>미드레벨 에스컬레이터</b></h5>
                     <p>영화 [중경삼림] 에도 나온 그 에스컬레이터! 세계 최장 길이라 기네스북에도 등재되어 있다. 내가 마치 홍콩 시민이 된 기분이 든달까</p>
+                    <p class="card-more"><a href="/static/template/location.html"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
                 </div>
             </div>
             <div class="detail-img">
@@ -112,6 +113,7 @@
                 <div class="detail-text">
                     <h5><b>미드레벨 에스컬레이터</b></h5>
                     <p>영화 [중경삼림] 에도 나온 그 에스컬레이터! 세계 최장 길이라 기네스북에도 등재되어 있다. 내가 마치 홍콩 시민이 된 기분이 든달까</p>
+                    <p class="card-more"><a href="/static/template/location.html"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
                 </div>
             </div>
             <div class="detail-img">
@@ -119,6 +121,7 @@
                 <div class="detail-text">
                     <h5><b>미드레벨 에스컬레이터</b></h5>
                     <p>영화 [중경삼림] 에도 나온 그 에스컬레이터! 세계 최장 길이라 기네스북에도 등재되어 있다. 내가 마치 홍콩 시민이 된 기분이 든달까</p>
+                    <p class="card-more"><a href="/static/template/location.html"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
                 </div>
             </div>
             <div class="detail-img">
@@ -126,6 +129,7 @@
                 <div class="detail-text">
                     <h5><b>미드레벨 에스컬레이터</b></h5>
                     <p>영화 [중경삼림] 에도 나온 그 에스컬레이터! 세계 최장 길이라 기네스북에도 등재되어 있다. 내가 마치 홍콩 시민이 된 기분이 든달까</p>
+                    <p class="card-more"><a href="/static/template/location.html"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
                 </div>
             </div>
         </div>
@@ -140,40 +144,77 @@
 
     <div class="detail-container">
         <h4 style="background-color: #333; padding: 10px; margin-bottom: 0;">REVIEW</h4>
-        <div class="detail-content">
-
+        <div class="review-content">
+            <div class="review-img">
+                <img src="/static/img/non_user.png" alt="">
+                <div class="review-text">
+                        <div class="review-header">
+                                <div class="review-user">
+                                    <p><b>철수(cjftn)</b> | 2018-12-01</p>
+                                </div>
+                                <div class="review-star">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                    <p>너무 좋은 경험이었습니다~</p>
+                </div>
+            </div>
+            <hr>
+            <div class="review-img">
+                <img src="/static/img/user2.jpg" alt="">
+                <div class="review-text">
+                    <div class="review-header">
+                        <div class="review-user">
+                            <p><b>영희(dudgml)</b> | 2018-12-01</p>
+                        </div>
+                        <div class="review-star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p>너무 더웟어요ㅠㅠㅠㅠㅠ</p>
+                </div>
+            </div>
         </div>
 
+        <form>
+            <textarea></textarea>
+        </form>
+
+        
         <input type="submit" class="btn login-btn-primary form-control" value="리뷰등록하기">
 
     </div>
 
-     <div w3-include-html="footer.html"></div>
+    <div w3-include-html="footer.html"></div>
     <script>
-            w3.includeHTML();
+        w3.includeHTML();
     </script>
 
-        <!-- Swiper JS -->
-        <script src="/static/js/swiper.min.js"></script>
-        <!-- Initialize Swiper -->
-        <script>
-            var swiper = new Swiper('.swiper-container', {
-                effect: 'coverflow',
-                grabCursor: true,
-                centeredSlides: true,
-                slidesPerView: 'auto',
-                coverflowEffect: {
-                    rotate: 0,
-                    stretch: 0,
-                    depth: 100,
-                    modifier: 1,
-                    slideShadows: true,
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                },
-            });
-        </script>
+    <!-- Swiper JS -->
+    <script src="/static/js/swiper.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+    </script>
 </body>
 
 </html>

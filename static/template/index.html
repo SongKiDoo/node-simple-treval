@@ -28,6 +28,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 
+
     <div w3-include-html="nav.html"></div>
     <script>
         var a = '<% theme_list %>';
@@ -36,7 +37,7 @@
         console.log(b);
     </script>
 
-    <% for(let post of theme_list) { %>
+   <!-- <% for(let post of theme_list) { %>
     <tr>
         <td><%= post.theme_id %></td>
         <td><%= post.theme_name %></td>
@@ -52,7 +53,7 @@
         <td><%= post.cource_hash_tag %></td>
         <td><%= post.cource_image_url %></td>
     </tr>
-    <% } %>
+    <% } %>-->
 
 
     <div class="slider-wrapper theme-mi-slider">
