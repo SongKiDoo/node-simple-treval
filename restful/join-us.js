@@ -11,7 +11,10 @@ router.get('/', function (req, res) {
 
 // 중복체크
 router.post('/register_check', function (req, res) {
+    console.log(req);
+
     const userID = req.body.userID;
+
 
     models.users.findOne({where: {id: userID}}).then(function (results) {
         res.json(results);
@@ -24,10 +27,11 @@ router.post('/register_check', function (req, res) {
 router.post('/register', function (req, res) {
 
     const userID = req.body.userID;
-    const password = req.body.userPassword;
+    const password  = req.body.userPassword;
     const userEmail = req.body.userEmail;
     const userName = req.body.userName;
 
+    console.log(userID, password)
     const hash_password = crypto.createHash('md5').update(password).digest("hex");
 
     models.users.create({id: userID, password: hash_password, email: userEmail, user_name: userName})

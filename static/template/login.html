@@ -18,18 +18,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-    <div w3-include-html="nav.html"></div>
-    <script>
-            w3.includeHTML();
-    </script>
-
-
     <div class="container">
         <h4 style="margin-bottom:30px"><b>LOGIN</b></h4>
         <div class="col-lg-4"></div>
         <div class="col-lg-4"></div>
         <div class="login-forms">
-            <form method="post" action="#">
+            <form method="post" name="login-form" class="login-form" action="location.origin">
                 <div class="form-group">
                     <input type="text" class="form-control" name="userID" placeholder="Enter ID" maxlength="20" />
                 </div>
@@ -42,12 +36,46 @@
         </div>
 
         <div class="login-btn" style="display: flex">
-            <input type="submit" class="btn login-btn-primary form-control" value="LOGIN">
-            <input type="button" class="btn login-btn-primary form-control" value="Join US" style="background:#ccc; color: #000; margin-left: 20px;" onclick="location.href='joinUs.html'">
+            <input type="submit" class="btn login-btn-primary form-control" value="LOGIN" onclick="loginBtnFunction();">
+            <input type="button" class="btn login-btn-primary form-control" value="Join US" style="background:#ccc; color: #000; margin-left: 20px;" onclick="location.href='join-us'">
         </div>
 
     </div>
 
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script>
+        document.getElementsByName('login-form').action = location.origin + '/api/login';
+        console.log(document.getElementsByName('login-form'))
+
+        var loginBtnFunction = function(){
+
+            var userID = $('#userID').val();
+            var userPassword = $('#userPassword').val();
+
+            if ($("#userID").val() == "") {
+                alert("아이디를 입력해주세요.");
+                $("#userID").focus();
+
+            }
+
+            else if ($("#userPassword").val() == "") {
+                alert("비밀번호를 입력해주세요.");
+                $("#userPassword").focus();
+
+            }
+
+             $.post(location.origin + '/api/login', {
+                userID: $('#userID').val(),
+                userPassword : $('#userPassword').val()
+            }, function (res) {
+                //console.log(res)
+               
+            });
+            
+        }
+    
+    
+    </script>
 </body>
 
 </html>

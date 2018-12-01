@@ -17,66 +17,165 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-       
+
     <div w3-include-html="nav.html"></div>
     <script>
     </script>
-               
+
     <div class="container">
-            <h4><b>JOIN US</b></h4>  
-            <form method="post" name="join-form" class="join-form" action="location.origin + '/api/register'">
-                <table class="table table-bordered table-hover" style="text-align: center; border: 1px solid #dddddd">
-                    <tbody>
-                        <tr>
-                                <td>
-                                <h5>ID</h5>
-                            </td>
-                            <td><input type="text" class="form-control" id="userID" name="userID" maxlength="20" placeholder="Your ID"></td>
-                            <td style="width:110px;"><button class="btn check_btn" onclick="registerCheckFunction();"
-                                    type="button">ID중복체크</button></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h5>PASSWORD</h5>
-                            </td>
-                            <td colspan="2"><input type="password" class="form-control" id="userPassword1" name="userPassword1"
-                                    maxlength="20" placeholder="Your PASSWORD"></td>
-                        </tr>
-                        <tr>
-                                <td>
-                                <h5>PASSWORD CHECK</h5>
-                            </td>
-                            <td colspan="2"><input type="password" class="form-control" id="userPassword2" name="userPassword2"
-                                    maxlength="20" placeholder="Your PASSWORD"></td>
-                        </tr>
-                        <tr>
-                                <td>
-                                <h5>NAME</h5>
-                            </td>
-                            <td colspan="2"><input type="text" class="form-control" id="userName" name="userName" maxlength="20" placeholder="Your NAME"></td>
-                        </tr>
-                        <tr>
-                                <td>
-                                    <h5>EMAILL</h5>
-                                </td>
-                                <td colspan="2"><input type="email" class="form-control" id="userEmail" name="userEmail" maxlength="20" placeholder="Your EMAIL"></td>
-                            </tr>
-                    </tbody>
-                </table>
-            </form>
-            <div class="submit btn">
-                    <input type="submit" class="btn regist_btn" value="Join Us">
-                    <input type="button" class="btn cancel_btn" value="Canecel" onclick="location.href='index.html'">
-            </div>
+        <h4><b>JOIN US</b></h4>
+        <form method="post" name="join-form" class="join-form" action="location.origin + '/api/register'">
+            <table class="table table-bordered table-hover" style="text-align: center; border: 1px solid #dddddd">
+                <tbody>
+                    <tr>
+                        <td>
+                            <h5>ID</h5>
+                        </td>
+                        <td><input type="text" class="form-control" id="userID" name="userID" maxlength="20"
+                                placeholder="Your ID"></td>
+                        <td style="width:110px;"><button class="btn check_btn" onclick="registerCheckFunction();" type="button">ID중복체크</button></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>PASSWORD</h5>
+                        </td>
+                        <td colspan="2"><input type="password" class="form-control" id="userPassword1" name="userPassword1"
+                                maxlength="20" placeholder="Your PASSWORD"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>PASSWORD CHECK</h5>
+                        </td>
+                        <td colspan="2"><input type="password" class="form-control" id="userPassword2" name="userPassword2"
+                                maxlength="20" placeholder="Your PASSWORD"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>NAME</h5>
+                        </td>
+                        <td colspan="2"><input type="text" class="form-control" id="userName" name="userName" maxlength="20"
+                                placeholder="Your NAME"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>EMAILL</h5>
+                        </td>
+                        <td colspan="2"><input type="email" class="form-control" id="userEmail" name="userEmail"
+                                maxlength="20" placeholder="Your EMAIL"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <div class="submit btn">
+            <input type="submit" class="btn regist_btn" value="Join Us" onclick="joinBtnFunction();">
+            <input type="button" class="btn cancel_btn" value="Canecel" onclick="location.href='index.html'">
         </div>
+    </div>
 
-        <div w3-include-html="footer.html"></div>
-        <script>
-            document.getElementsByName('join-form').action = location.origin + '/api/register_check';
-            // document.getElementsByName('join-form').action = location.origin + '/api/register';
+    <div w3-include-html="footer.html"></div>
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script>
+        document.getElementsByName('join-form').action = location.origin + '/api/register_check';
+        // document.getElementsByName('join-form').action = location.origin + '/api/register';
 
-            console.log(document.getElementsByName('join-form'))
-        </script>
+        console.log(document.getElementsByName('join-form'))
+
+        var registerCheckFunction = function () {
+            var userID = $('#userID').val();
+
+            // $.ajax({
+            //     url:  location.origin + '/api/join-us/register_check', // 요청 할 주소
+            //     async: true, // false 일 경우 동기 요청으로 변경
+            //     type: 'POST', // GET, PUT
+            //     data: {
+            //         userID: $('#userID').val()
+
+            //     }, // 전송할 데이터
+            //     dataType: 'json', // xml, json, script, html
+            //     beforeSend: function (jqXHR) { }, // 서버 요청 전 호출 되는 함수 return false; 일 경우 요청 중단
+            //     success: function (jqXHR) {
+            //         console.log(jqXHR)
+
+            //      }, // 요청 완료 시
+            //     error: function (jqXHR) { }, // 요청 실패.
+            //     complete: function (jqXHR) {
+            //         console.log(jqXHR)
+            //      } // 요청의 실패, 성공과 상관 없이 완료 될 경우 호출
+            // });
+
+            $.post(location.origin + '/api/join-us/register_check', {
+                userID: $('#userID').val()
+            }, function (res) {
+                //console.log(res)
+                if (res != null) {
+                    alert("이미 사용중인 아이디 입니다.");
+                } else {
+                    alert("사용 가능한 아이디 입니다.");
+                }
+                $("#userID").focus();
+            });
+
+        }
+
+        var joinBtnFunction = function () {
+
+
+            if ($("#userID").val() == "") {
+                alert("아이디를 입력해주세요.");
+                $("#userID").focus();
+
+            }
+
+            else if ($("#userPassword1").val() == "") {
+                alert("비밀번호를 입력해주세요.");
+                $("#userPassword1").focus();
+
+            }
+
+            else if ($("#userPassword2").val() == "") {
+                alert("비밀번호를 확인해주세요.");
+                $("#userPassword2").focus();
+
+            }
+
+            else if ($("#userPassword1").val() != $("#userPassword2").val()) {
+                alert("비밀번호를 잘못입력하셨습니다.");
+                $("#userPassword1").focus();
+            }
+
+            else if ($("#userName").val() == "") {
+                alert("이름을 입력해주세요.");
+                $("#userName").focus();
+            }
+
+            else if ($("#userEmail").val() == "") {
+                alert("이메일을 입력해주세요.");
+                $("#userEmail").focus();
+            }
+
+            else{
+                alert("회원가입이 완료되었습니다.");
+                location.href="/login";
+            }
+
+            
+            $.post(location.origin + '/api/join-us/register', {
+                userID: $('#userID').val(),
+                userPassword : $('#userPassword1').val(),
+                userEmail : $('#userEmail').val(),
+                userName : $('#userName').val()
+            }, function (res) {
+                console.log(res)
+            });
+
+        }
+
+      
+
+        
+
+
+    </script>
 </body>
 
 </html>
