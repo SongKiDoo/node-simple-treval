@@ -18,10 +18,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-    <div w3-include-html="nav.html"></div>
-    <script>
-    </script>
-
     <div class="container">
         <h4><b>JOIN US</b></h4>
         <form method="post" name="join-form" class="join-form" action="location.origin + '/api/register'">
@@ -82,6 +78,12 @@
 
         var registerCheckFunction = function () {
             var userID = $('#userID').val();
+
+            if( userID == ""){
+                alert("아이디를 입력해주세요.");
+                return ;
+                $("#userID").focus();
+            }
 
             // $.ajax({
             //     url:  location.origin + '/api/join-us/register_check', // 요청 할 주소

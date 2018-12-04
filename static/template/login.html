@@ -25,12 +25,12 @@
         <div class="login-forms">
             <form method="post" name="login-form" class="login-form" action="location.origin">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="userID" placeholder="Enter ID" maxlength="20" />
+                    <input type="text" class="form-control" name="userID" placeholder="Enter ID" maxlength="20" id="userID" />
                 </div>
 
                 <div class="form-group">
                     <input type="password" class="form-control" name="userPassword" placeholder="Enter PASSWORD"
-                        maxlength="20" />
+                        maxlength="20" id="userPassword"/>
                 </div>
             </form>
         </div>
@@ -62,14 +62,24 @@
                 alert("비밀번호를 입력해주세요.");
                 $("#userPassword").focus();
 
-            }
+            } 
 
              $.post(location.origin + '/api/login', {
                 userID: $('#userID').val(),
                 userPassword : $('#userPassword').val()
             }, function (res) {
-                //console.log(res)
-               
+               console.log(res)
+               if(res!=null){
+                   alert("로그인에 성공하였습니다.");
+                   location.href="/index";
+                    
+               } else{
+                   alert("아이디/비밀번호를 확인해주세요.");
+                   $("#userID").focus();
+               }
+
+               $("#userID").focus();
+
             });
             
         }
