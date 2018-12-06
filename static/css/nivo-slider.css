@@ -65,7 +65,7 @@
 	position:absolute;
 	left:0px;
 	bottom:0px;
-	background:#333;
+	background:transparent;
 	color:#fff;
 	width:100%;
 	z-index:8;
@@ -98,6 +98,7 @@
 	cursor:pointer;
 }
 .nivo-prevNav {
+	
 	left:0px;
 }
 .nivo-nextNav {

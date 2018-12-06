@@ -156,7 +156,8 @@ tr th:last-child {
 }
 
 .nivo-controlNav{
-    display: flex;
+    display: none;
+    /* display: flex; */
     justify-content: center;
 }
 
@@ -175,6 +176,10 @@ tr th:last-child {
 }
 .theme-mi-slider .active{
     background: #333;
+}
+
+.nivo-nextNav{
+    display: none;
 }
 
 .nivo-directionNav a{
