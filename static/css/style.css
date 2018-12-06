@@ -60,12 +60,63 @@ ul {
     font-size: 14px;
 }
 
+
+/* .burger {
+    display: none;
+    cursor: pointer;
+}
+.burger div{
+    width:25px;
+    height: 3px;
+    background-color:white;
+    margin: 5px;
+
+}
+
+.nav-active{
+    transform: translateX(0%); 
+ }
+
+@media screen and (max-width:768px){
+
+    body{
+
+        overflow-x: hidden;
+       
+    }
+
+    .nav-links{
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top:8vh;
+        background-color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+
+    .burger{
+        display: block;
+        
+    }
+
+} */
+
 /* 회원가입 */
 .join-form{
     margin-top: 30px;
 }
 
 .container {
+    min-height: 100%;
     margin-top: 40px;
     text-align: center;
     font-family: 'Rubik', sans-serif;
@@ -329,38 +380,29 @@ tr th:last-child {
 
 
 .review-img{
+height: 10  0px;
   margin-left: 30px;
   text-align: left;
   display: flex;
 }
 .review-img img{
-  width: 100px; height: 100px;
+  width: 50px; height: 50px;
   object-fit: cover;
   object-position: top;
   border-radius: 50%;
-  margin: 30px;
+
+ margin-right: 30px;
+
 }
 
-.review-text {
-    margin-top: 30px;
-}
 
 .review-header{
-    width: 1000px;
+    width: 100%;
     display: flex;
     
 }
 
-.review-user{
-    width: 70%;
-}
 
-.review-star{
-    width: 10%;
-    text-align: right;
-    color: #ffd400;
-
-}
 /* textarea */
 textarea {
     width: 100%;
@@ -374,13 +416,27 @@ textarea {
     resize: none;
 }
 
-.starR{
-    background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
-    background-size: auto 100%;
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    text-indent: -9999px;
-    cursor: pointer;
-  }
-  .starR.on{background-position:0 0;}
+
+/* location-detail img */
+
+.loaction{
+    text-align: center;
+}
+
+.location-detail-img {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.location-detail-img img{
+    width: 80%;
+}
+
+.location-detail-text{
+    width: 80%;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #333;
+    
+}

@@ -18,6 +18,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
+    <% include nav.ejs %>
+
     <div class="container">
         <h4 style="margin-bottom:30px"><b>LOGIN</b></h4>
         <div class="col-lg-4"></div>
@@ -42,6 +44,7 @@
 
     </div>
 
+
     <script src="/static/js/jquery-3.3.1.min.js"></script>
     <script>
         document.getElementsByName('login-form').action = location.origin + '/api/login';
@@ -55,12 +58,14 @@
             if ($("#userID").val() == "") {
                 alert("아이디를 입력해주세요.");
                 $("#userID").focus();
+                return false;
 
             }
 
             else if ($("#userPassword").val() == "") {
                 alert("비밀번호를 입력해주세요.");
                 $("#userPassword").focus();
+                return false;
 
             } 
 
@@ -68,8 +73,9 @@
                 userID: $('#userID').val(),
                 userPassword : $('#userPassword').val()
             }, function (res) {
-               console.log(res)
-               if(res!=null){
+               //console.log(res)
+               if(res){
+
                    alert("로그인에 성공하였습니다.");
                    location.href="/index";
                     

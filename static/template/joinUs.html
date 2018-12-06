@@ -17,6 +17,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <% include nav.ejs %>
 
     <div class="container">
         <h4><b>JOIN US</b></h4>
@@ -68,7 +69,7 @@
         </div>
     </div>
 
-    <div w3-include-html="footer.html"></div>
+   <% include footer.ejs %>
     <script src="/static/js/jquery-3.3.1.min.js"></script>
     <script>
         document.getElementsByName('join-form').action = location.origin + '/api/register_check';
