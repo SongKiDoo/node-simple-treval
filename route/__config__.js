@@ -7,12 +7,13 @@ var path = require('path');
 let login = require('./login.js');
 let main = require('./main.js');
 let joinUs = require('./join-us.js');
-let course = require('./course');
+let course = require('./course.js');
 let thema = require('./thema.js');
 let detail = require('./detail.js');
 
 let apiLogin = require('../restful/login.js');
 let apiJoinUs = require('../restful/join-us.js');
+let apiReview = require('../restful/review.js');
 
 
 let routeSetting = function (app) {
@@ -63,7 +64,7 @@ let addResource = function(app) {
 let addApiResource = function(app) {
     app.use('/api/login', apiLogin);
     app.use('/api/join-us', apiJoinUs);
-
+    app.use('/api/review', apiReview);
 };
 
 module.exports = routeSetting;
