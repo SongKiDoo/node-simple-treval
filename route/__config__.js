@@ -9,6 +9,7 @@ let main = require('./main.js');
 let joinUs = require('./join-us.js');
 let course = require('./course');
 let thema = require('./thema.js');
+let detail = require('./detail.js');
 
 let apiLogin = require('../restful/login.js');
 let apiJoinUs = require('../restful/join-us.js');
@@ -56,6 +57,7 @@ let addResource = function(app) {
     app.use('/join-us', joinUs);
     app.use('/course', course);
     app.use('/thema', thema);
+    app.use('/detail', detail);
 };
 
 let addApiResource = function(app) {
