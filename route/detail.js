@@ -3,6 +3,7 @@ var router = express.Router();
 let models = require('../models/database');
 
 router.get('/:id', function (req, res) {
+    const sess = req.session;
 
     const id = req.param.id;
     const type = req.query.type;
@@ -10,7 +11,8 @@ router.get('/:id', function (req, res) {
 
     models.travel_place.findAll({where : customQuery}).then(function (result) {
         res.render('detail.html', {
-            detailList: result
+            detailList: result,
+            sess : sess
         }).catch(err => {
             console.error(err);
         });

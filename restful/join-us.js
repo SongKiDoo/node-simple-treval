@@ -15,7 +15,6 @@ router.post('/register_check', function (req, res) {
 
     const userID = req.body.userID;
 
-
     models.users.findOne({where: {id: userID}}).then(function (results) {
         res.json(results);
     }).catch(err => {

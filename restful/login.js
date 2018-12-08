@@ -15,12 +15,14 @@ router.post('/', function (req, res) {
     const hash_password = crypto.createHash('md5').update(password).digest("hex");
     console.log(hash_password )
     models.users.findOne({where: {id: userID, password: hash_password}}).then(function (results) {
+        let sess = req.session;
+        sess.user_id = results.id;
+        sess.user_name = results.user_name;
         res.json(results);
     }).catch(err => {
         console.error(err);
     });
 });
-
 
 
 module.exports = router;
