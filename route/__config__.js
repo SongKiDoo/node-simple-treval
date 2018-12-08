@@ -7,6 +7,8 @@ var path = require('path');
 let login = require('./login.js');
 let main = require('./main.js');
 let joinUs = require('./join-us.js');
+let course = require('./course');
+let thema = require('./thema.js');
 
 let apiLogin = require('../restful/login.js');
 let apiJoinUs = require('../restful/join-us.js');
@@ -52,6 +54,8 @@ let addResource = function(app) {
     // 로그인, 회원가입
     app.use('/login', login);
     app.use('/join-us', joinUs);
+    app.use('/course', course);
+    app.use('/thema', thema);
 };
 
 let addApiResource = function(app) {

@@ -31,13 +31,14 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.INTEGER(11),
 			allowNull: true
 		},
-		comment_dics: {
+		comment_disc: {
 			type: DataTypes.INTEGER(11),
 			allowNull: true
 		},
 		create_date: {
-			type: DataTypes.DATEONLY,
-			allowNull: true
+			type: DataTypes.DATE,
+			allowNull: true,
+			defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
 		}
 	}, {
 		tableName: 'review_comment'

@@ -9,10 +9,11 @@ router.get('/', function (req, res) {
 });
 
 router.post('/', function (req, res) {
+    console.log(req.body)
     const userID = req.body.userID;
     const password = req.body.userPassword;
     const hash_password = crypto.createHash('md5').update(password).digest("hex");
-
+    console.log(hash_password )
     models.users.findOne({where: {id: userID, password: hash_password}}).then(function (results) {
         res.json(results);
     }).catch(err => {

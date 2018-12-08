@@ -33,8 +33,9 @@
         console.log(b);
     </script> -->
 
+    <% include ./nav %>
 
-   <!-- <% for(let post of theme_list) { %>
+    <% for(let post of theme_list) { %>
     <tr>
         <td><%= post.theme_id %></td>
         <td><%= post.theme_name %></td>
@@ -50,7 +51,7 @@
         <td><%= post.cource_hash_tag %></td>
         <td><%= post.cource_image_url %></td>
     </tr>
-    <% } %>-->
+    <% } %>
 
 
     <div class="slider-wrapper theme-mi-slider">
@@ -148,10 +149,7 @@
         </div>
     </div>
 
-    <div w3-include-html="footer.html"></div>
-    <script>
-            w3.includeHTML();
-    </script>
+    <% include ./footer.ejs %>
 
 
 </body>

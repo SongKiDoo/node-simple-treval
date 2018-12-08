@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
 			allowNull: true
 		},
 		create_date: {
-			type: DataTypes.DATEONLY,
+			type: DataTypes.DATE,
 			allowNull: true
 		}
 	}, {
