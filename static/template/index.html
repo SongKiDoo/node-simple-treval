@@ -73,7 +73,7 @@
                                 <div class="card-body">
                                     <p class="card-title"><b><%= post.cource_name %></b></p>
                                     <p class="card-text"><%= post.cource_hash_tag %></p>
-                                    <p class="card-more"><a href="/detail"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
+                                    <p class="card-more"><a href="/detail/<%= post.cource_id %>"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                         <div class="card-body">
                             <p class="card-title"><b><%= post.theme_name %></b></p>
                             <p class="card-text"><%= post.theme_hash_tag %></p>
-                            <p class="card-more"><a href="#"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
+                            <p class="card-more"><a href="/detail/<%= post.theme_id %>"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
                         </div>
                     </div>
                 </div>
