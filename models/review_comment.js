@@ -31,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.INTEGER(11),
 			allowNull: true
 		},
-		comment_disc: {
+		comment_dics: {
 			type: DataTypes.INTEGER(11),
 			allowNull: true
 		},

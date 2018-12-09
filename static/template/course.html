@@ -18,11 +18,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-    <div w3-include-html="nav.html"></div>
-    <script>
-            w3.includeHTML();
-    </script>
-
+    <% include ./nav %>
 
     <div class="container">
         <h1 ><b>COURSE</b></h1>
@@ -66,52 +62,10 @@
             </div>
             <!-- section1 마지막 부분 -->
         
-            <!-- section1 시작 부분 -->
-            <div class="section-1">
-                <div class="container text-center">
-                   
-                    <div class="row justify-content-center text-center">
-                        <div class="col-md-3">
-                            <div class="card" style="width:15rem;">
-                                <img src="/static/img/recommend1.jpg" class="card-img-top" alt="image1">
-                                <div class="card-body">
-                                    <p class="card-title"><b>1박2일 완전정복!</b></p>
-                                    <p class="card-text">#홍콩#먹거리탐방#미드레벨#에스컬레이터</p>
-                                    <p class="card-more"><a href="#"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
-                                </div>
-                            </div>
-                        </div>
-        
-                        <div class="col-md-3">
-                            <div class="card" style="width:15rem;">
-                                <img src="/static/img/recommend2.jpg" class="card-img-top" alt="image1">
-                                <div class="card-body">
-                                    <p class="card-title"><b>화려한 야경 추천</b></p>
-                                    <p class="card-text">#홍콩#야경#빅토리아파크</p>
-                                    <p class="card-more"><a href="#"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card" style="width:15rem;">
-                                <img src="/static/img/recommend3.jpg" class="card-img-top" alt="image1">
-                                <div class="card-body">
-                                    <p class="card-title"><b>먹거리 탐방코스</b></p>
-                                    <p class="card-text">#홍콩#먹거리#천국#몽콕야시장</p>
-                                    <p class="card-more"><a href="#"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
     </div>
 
-    <div w3-include-html="footer.html"></div>
-    <script>
-        w3.includeHTML();
-    </script>
+    <% include ./footer %>
+
 </body>
 
 </html>

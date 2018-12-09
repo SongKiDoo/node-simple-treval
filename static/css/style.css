@@ -178,7 +178,14 @@ tr th:last-child {
     background: #333;
 }
 
+
+/* 메인 슬라이더 번호 none */
 .nivo-nextNav{
+    display: none;
+}
+
+/* 메인 슬라이더 화살표 none */
+.nivo-directionNav{
     display: none;
 }
 
@@ -234,6 +241,7 @@ tr th:last-child {
 
 .section-1 .card-text, .para-1{
     color: rgba(0, 0, 0, 0.59);
+    font-size: 11px;
 
 }
 

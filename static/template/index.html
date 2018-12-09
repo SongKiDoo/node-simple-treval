@@ -35,24 +35,16 @@
 
     <% include ./nav %>
 
-    <% for(let post of theme_list) { %>
+    <!-- <% for(let post of theme_list) { %>
     <tr>
         <td><%= post.theme_id %></td>
         <td><%= post.theme_name %></td>
         <td><%= post.theme_image_url %></td>
         <td><%= post.theme_hash_tag %></td>
     </tr>
-    <% } %>
+    <% } %> -->
 
-    <% for(let post of cource_list) { %>
-    <tr>
-        <td><%= post.cource_id %></td>
-        <td><%= post.cource_name %></td>
-        <td><%= post.cource_hash_tag %></td>
-        <td><%= post.cource_image_url %></td>
-    </tr>
-    <% } %>
-
+    
 
     <div class="slider-wrapper theme-mi-slider">
         <div id="slider" class="nivoSlider">
@@ -66,85 +58,50 @@
             <h3 style="margin-left: 40px;"><a href="/static/template/joinUs.html">홍콩여행지2 확인.</a></h3>
         </div> -->
     </div>
+
+
     <!-- section1 시작 부분 -->
     <div class="section-1">
         <div class="container text-center">
             <h1 class="heading-1">홍콩 추천 여행코스</h1>
 
             <div class="row justify-content-center text-center">
-                <div class="col-md-3">
-                    <div class="card" style="width:15rem;">
-                        <img src="/static/img/recommend1.jpg" class="card-img-top" alt="image1">
-                        <div class="card-body">
-                            <p class="card-title"><b>1박2일 완전정복!</b></p>
-                            <p class="card-text">#홍콩#먹거리탐방#미드레벨#에스컬레이터</p>
-                            <p class="card-more"><a href="/detail"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
+                <% for(let post of cource_list) { %>
+                    <div class="col-md-3">
+                            <div class="card" style="width:15rem;">
+                                <img src="<%= post.cource_image_url %>" class="card-img-top" alt="image1">
+                                <div class="card-body">
+                                    <p class="card-title"><b><%= post.cource_name %></b></p>
+                                    <p class="card-text"><%= post.cource_hash_tag %></p>
+                                    <p class="card-more"><a href="/detail"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="col-md-3">
-                    <div class="card" style="width:15rem;">
-                        <img src="/static/img/recommend2.jpg" class="card-img-top" alt="image1">
-                        <div class="card-body">
-                            <p class="card-title"><b>화려한 야경 추천</b></p>
-                            <p class="card-text">#홍콩#야경#빅토리아파크</p>
-                            <p class="card-more"><a href="#"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card" style="width:15rem;">
-                        <img src="/static/img/recommend3.jpg" class="card-img-top" alt="image1">
-                        <div class="card-body">
-                            <p class="card-title"><b>먹거리 탐방코스</b></p>
-                            <p class="card-text">#홍콩#먹거리#천국#몽콕야시장</p>
-                            <p class="card-more"><a href="#"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
-                        </div>
-                    </div>
-                </div>
+                <% } %>
             </div>
         </div>
     </div>
     <!-- section1 마지막 부분 -->
-
+    
     <!-- section1 시작 부분 -->
     <div class="section-1">
         <div class="container text-center">
             <h1 class="heading-1">홍콩 추천 테마</h1>
 
             <div class="row justify-content-center text-center">
+                <% for(let post of theme_list) { %>
                 <div class="col-md-3">
                     <div class="card" style="width:15rem;">
-                        <img src="/static/img/recommend1.jpg" class="card-img-top" alt="image1">
+                        <img src="<%= post.theme_image_url %>" class="card-img-top" alt="image1">
                         <div class="card-body">
-                            <p class="card-title"><b>1박2일 완전정복!</b></p>
-                            <p class="card-text">#홍콩#먹거리탐방#미드레벨#에스컬레이터</p>
+                            <p class="card-title"><b><%= post.theme_name %></b></p>
+                            <p class="card-text"><%= post.theme_hash_tag %></p>
                             <p class="card-more"><a href="#"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-3">
-                    <div class="card" style="width:15rem;">
-                        <img src="/static/img/recommend2.jpg" class="card-img-top" alt="image1">
-                        <div class="card-body">
-                            <p class="card-title"><b>화려한 야경 추천</b></p>
-                            <p class="card-text">#홍콩#야경#빅토리아파크</p>
-                            <p class="card-more"><a href="#"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card" style="width:15rem;">
-                        <img src="/static/img/recommend3.jpg" class="card-img-top" alt="image1">
-                        <div class="card-body">
-                            <p class="card-title"><b>먹거리 탐방코스</b></p>
-                            <p class="card-text">#홍콩#먹거리#천국#몽콕야시장</p>
-                            <p class="card-more"><a href="#"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
-                        </div>
-                    </div>
-                </div>
+                <% } %>
             </div>
         </div>
     </div>
