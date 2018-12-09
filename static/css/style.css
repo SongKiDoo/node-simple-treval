@@ -295,16 +295,18 @@ tr th:last-child {
     height: 250px;
   }
 
-  .swiper-container {
-    width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-  .swiper-slide {
+  .swiper-slide img{
     background-position: center;
     background-size: cover;
     width: 250px;
     height: 250px;
+
+  }
+
+  .swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 
   .detail-container{

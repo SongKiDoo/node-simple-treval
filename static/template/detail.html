@@ -66,39 +66,19 @@
 
     <% include ./nav %>
 
-    
-     <!-- <% for(let post of detailList) { %>
-    <tr>
-        <td><%= post.place_id %></td>
-        <td><%= post.place_name  %></td>
-
-    </tr>
-    <% } %>
-
-    <script>
-            var a = '<% detailList %>';
-            console.log(a)
-            
-    </script> -->
-
-
-
     <div class="container">
         <h4><b>1박 2일 완전정복!!</b></h4>
         <p class="hashtag">#홍콩#먹거리탐방#미드레벨#에스컬레이터</p>
 
     </div>
-
+    
     <!-- Swiper -->
     <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide" style="background-image:url(/static/img/recommend1.jpg)"></div>
-            <div class="swiper-slide" style="background-image:url(/static/img/detail2.jpg)"></div>
-            <div class="swiper-slide" style="background-image:url(/static/img/detail3.jpg)"></div>
-            <div class="swiper-slide" style="background-image:url(/static/img/detail4.jpg)"></div>
-            <div class="swiper-slide" style="background-image:url(/static/img/detail5.jpg)"></div>
-            <div class="swiper-slide" style="background-image:url(/static/img/detail6.jpg)"></div>
-        </div>
+            <div class="swiper-wrapper">
+                    <% for(let post of detailList) { %>
+                    <div class="swiper-slide"><img src="<%= post.place_image_url %>"></div>
+                    <% } %>
+            </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
     </div>
@@ -106,46 +86,16 @@
     <div class="detail-container">
         <h4 style="background-color: #333; padding: 10px; margin-bottom: 0;">DETAIL</h4>
         <div class="detail-content">
+            <% for(let post of detailList) { %>
             <div class="detail-img">
-                <img src="/static/img/recommend1.jpg" alt="">
+                <img src="<%= post.place_image_url %>" alt="">
                 <div class="detail-text">
-                    <h5><b>미드레벨 에스컬레이터</b></h5>
-                    <p>영화 [중경삼림] 에도 나온 그 에스컬레이터! 세계 최장 길이라 기네스북에도 등재되어 있다. 내가 마치 홍콩 시민이 된 기분이 든달까</p>
+                    <h5><b><%= post.place_name %></b></h5>
+                    <p><%= post.place_content %></p>
                     <p class="card-more"><a href="/static/template/location.html"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
                 </div>
             </div>
-            <div class="detail-img">
-                <img src="/static/img/recommend1.jpg" alt="">
-                <div class="detail-text">
-                    <h5><b>미드레벨 에스컬레이터</b></h5>
-                    <p>영화 [중경삼림] 에도 나온 그 에스컬레이터! 세계 최장 길이라 기네스북에도 등재되어 있다. 내가 마치 홍콩 시민이 된 기분이 든달까</p>
-                    <p class="card-more"><a href="/static/template/location.html"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
-                </div>
-            </div>
-            <div class="detail-img">
-                <img src="/static/img/recommend1.jpg" alt="">
-                <div class="detail-text">
-                    <h5><b>미드레벨 에스컬레이터</b></h5>
-                    <p>영화 [중경삼림] 에도 나온 그 에스컬레이터! 세계 최장 길이라 기네스북에도 등재되어 있다. 내가 마치 홍콩 시민이 된 기분이 든달까</p>
-                    <p class="card-more"><a href="/static/template/location.html"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
-                </div>
-            </div>
-            <div class="detail-img">
-                <img src="/static/img/recommend1.jpg" alt="">
-                <div class="detail-text">
-                    <h5><b>미드레벨 에스컬레이터</b></h5>
-                    <p>영화 [중경삼림] 에도 나온 그 에스컬레이터! 세계 최장 길이라 기네스북에도 등재되어 있다. 내가 마치 홍콩 시민이 된 기분이 든달까</p>
-                    <p class="card-more"><a href="/static/template/location.html"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
-                </div>
-            </div>
-            <div class="detail-img">
-                <img src="/static/img/recommend1.jpg" alt="">
-                <div class="detail-text">
-                    <h5><b>미드레벨 에스컬레이터</b></h5>
-                    <p>영화 [중경삼림] 에도 나온 그 에스컬레이터! 세계 최장 길이라 기네스북에도 등재되어 있다. 내가 마치 홍콩 시민이 된 기분이 든달까</p>
-                    <p class="card-more"><a href="/static/template/location.html"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
-                </div>
-            </div>
+            <% } %>
         </div>
     </div>
 
@@ -171,43 +121,30 @@
                     </div>
                 </div>
                 <hr>
-                <div class="review-img">
-                    <img src="/static/img/non_user.png" alt="">
-                    <div class="review-text">
-                        <div class="review-header">
-                            <div class="review-user">
-                                <p><b>영희(dudgml)</b> | 2018-12-01</p>
-                            </div>
-                        </div>
-                        <p>너무 더웟어요ㅠㅠㅠㅠㅠ</p>
-                    </div>
-                </div>
-                <hr>
-                <div class="review-img">
-                    <img src="/static/img/non_user.png" alt="">
-                    <div class="review-text">
-                        <div class="review-header">
-                            <div class="review-user">
-                                <p><b>영희(dudgml)</b> | 2018-12-01</p>
-                            </div>
-                        </div>
-                        <p>너무 더웟어요ㅠㅠㅠㅠㅠ</p>
-                    </div>
-                </div>
             </div>
 
-            <form>
-                <textarea></textarea>
+            <form  method="post" name="review-form" class="review-form" action="location.origin + '/api/:tableId">
+                <textarea name="reviewText" id="reviewText"></textarea>
             </form>
 
-            <input type="submit" class="btn login-btn-primary form-control" value="리뷰등록하기">
+            <input type="submit" class="btn login-btn-primary form-control" onclick="reviewBtnFunction();" value="리뷰등록하기">
     
         </div>
 
-    <div w3-include-html="footer.html"></div>
+    <% include ./footer %>
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
     <script>
-        w3.includeHTML();
+        document.getElementsByName('review-form').action = location.origin + '/api/:tableId';
+        console.log(document.getElementsByName('review-form'))
+
+        var reviewBtnFunction = function(){
+
+
+
+        }
+
     </script>
+    
 
     <!-- Swiper JS -->
     <script src="/static/js/swiper.min.js"></script>
