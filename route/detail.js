@@ -5,7 +5,7 @@ let models = require('../models/database');
 router.get('/:id', function (req, res) {
     const sess = req.session;
 
-    const id = req.param.id;
+    const id = req.params.id;
     const type = req.query.type;
     const customQuery = type === 'theme' ? { theme_id : id } : { course_id : id };
 
@@ -13,9 +13,9 @@ router.get('/:id', function (req, res) {
         res.render('detail.html', {
             detailList: result,
             sess : sess
-        }).catch(err => {
-            console.error(err);
-        });
+        })
+    }).catch(err => {
+        console.error(err);
     });
 });
 
