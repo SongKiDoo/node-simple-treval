@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/nivo-slider.css">
+    <link rel="stylesheet" href="/static/css/nivo-slider.css">    
     <script src="/static/js/jquery-3.3.1.min.js"></script>
     <script src="/static/js/jquery.nivo.slider.js"></script>
 
@@ -69,7 +69,7 @@
                 <% for(let post of cource_list) { %>
                     <div class="col-md-3">
                             <div class="card" style="width:15rem;">
-                                <img src="<%= post.cource_image_url %>" class="card-img-top" alt="image1">
+                                <a href="/detail/<%= post.cource_id %>"><img src="<%= post.cource_image_url %>" class="card-img-top" alt="image1"></a>
                                 <div class="card-body">
                                     <p class="card-title"><b><%= post.cource_name %></b></p>
                                     <p class="card-text"><%= post.cource_hash_tag %></p>

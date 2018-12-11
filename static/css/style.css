@@ -252,12 +252,27 @@ tr th:last-child {
 .card-more a{
     font-family: 'Cairo', sans-serif;
     color: #333;
-    text-decoration: underline;
+    text-decoration: none;
     letter-spacing: 2px;
     font-weight: bold;
     font-size: 14px;
 }
 
+.card-more a:hover{
+    text-decoration: underline;
+}
+.card-img-top{
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.card-img-top:hover{
+    opacity: 0.3;
+}
 
 /* section5 디자인 */
 .section-5 {
