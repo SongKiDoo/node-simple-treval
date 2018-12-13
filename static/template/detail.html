@@ -41,7 +41,7 @@
                 position: markLocation, // 마커가 위치할 위도와 경도(변수)
                 map: map,
                 icon: image, // 마커로 사용할 이미지(변수)
-                //             info: '말풍선 안에 들어갈 내용',
+                info:'미드레벨 에스컬레이터',//             info: '말풍선 안에 들어갈 내용',
                 title: '미드레벨 에스컬레이터' // 마커에 마우스 포인트를 갖다댔을 때 뜨는 타이틀
             });
 
@@ -124,8 +124,8 @@
                 <hr>
             </div>
 
-            <form  method="post" name="review-form" class="review-form" action="location.origin + '/api/:tableId">
-                <textarea name="reviewText" id="reviewText"></textarea>
+            <form id="review-form" name="review-form" class="review-form">
+                <textarea name="comment_review" id="comment_review"></textarea>
             </form>
 
             <input type="submit" class="btn login-btn-primary form-control" onclick="reviewBtnFunction();" value="리뷰등록하기">
@@ -135,14 +135,71 @@
     <% include ./footer %>
     <script src="/static/js/jquery-3.3.1.min.js"></script>
     <script>
-        document.getElementsByName('review-form').action = location.origin + '/api/:tableId';
-        console.log(document.getElementsByName('review-form'))
+        console.log(location.pathname)
+        var path = location.pathname;
+        var cutPath = '';
+        for(var i=1 ; i < path.length ; i++) {
+            console.log(path[i])
+            cutPath += path[i];
+        }
+        console.log(cutPath.indexOf('/'))
+        var tableId = '';
+        for(var y = cutPath.indexOf('/') + 1 ; y < cutPath.length ; y++) {
+            tableId += cutPath[y];
+        }
+        console.log(tableId);
 
+    
         var reviewBtnFunction = function(){
+         
+            var comment_review = $('#comment_review').val();
 
+            if ($("#comment_review").val() == "") {
+                alert("리뷰를 등록해주세요.");
+                $("#comment_review").focus();
 
+            } else{
+                console.log(comment_review);
+            }
+
+            // $.post(location.origin + 'api/:tableId',{
+            //     comment_review : $('#comment_review').val(),
+            //     userID: $('#userID').val()
+            // },function(res){
+            //     if(res){
+            //         alert("리뷰가 등록되었습니다.");
+            //     }
+            // });
+           
 
         }
+
+    
+
+        // var reviewBtnFunction = function(){
+
+        //     $.post(location.origin + '/api/:tableId', {
+        //         userID: $('#userID').val(),
+        //         userPassword : $('#userPassword').val()
+        //     }, function (res) {
+        //        //console.log(res)
+        //        if(res){
+
+        //            alert("로그인에 성공하였습니다.");
+        //            location.href="/";
+
+        //        } else{
+        //            alert("아이디/비밀번호를 확인해주세요.");
+        //            $("#userID").focus();
+        //        }
+
+        //        $("#userID").focus();
+
+        //     });
+
+        
+
+
 
     </script>
     

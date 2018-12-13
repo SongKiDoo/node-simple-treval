@@ -93,11 +93,10 @@
                 <% for(let post of theme_list) { %>
                 <div class="col-md-3">
                     <div class="card" style="width:15rem;">
-                        <img src="<%= post.theme_image_url %>" class="card-img-top" alt="image1">
-                        <div class="card-body">
+                        <a href="/detail/<%= post.theme_id %>?type=theme"><img src="<%= post.theme_image_url %>" class="card-img-top" alt="image1"></a><div class="card-body">
                             <p class="card-title"><b><%= post.theme_name %></b></p>
                             <p class="card-text"><%= post.theme_hash_tag %></p>
-                            <p class="card-more"><a href="/detail/<%= post.theme_id %>"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
+                            <p class="card-more"><a href="/detail/<%= post.theme_id %>?type=theme"><span><i class="far fa-arrow-alt-circle-right"></i></span>ReadMore</a></p>
                         </div>
                     </div>
                 </div>
