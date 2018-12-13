@@ -11,55 +11,6 @@
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="/static/css/swiper.min.css">
     <link rel="stylesheet" href="/static/css/style.css">
-
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script type="text/javascript">
-        function initialize() {
-            var mapLocation = new google.maps.LatLng('22.283858', '114.155140'); // 지도에서 가운데로 위치할 위도와 경도
-            var markLocation = new google.maps.LatLng('22.283858', '114.155140'); // 마커가 위치할 위도와 경도
-
-            var mapOptions = {
-                center: mapLocation, // 지도에서 가운데로 위치할 위도와 경도(변수)
-                zoom: 18, // 지도 zoom단계
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            var map = new google.maps.Map(document.getElementById("map-canvas"), // id: map-canvas, body에 있는 div태그의 id와 같아야 함
-                mapOptions);
-
-            var size_x = 60; // 마커로 사용할 이미지의 가로 크기
-            var size_y = 60; // 마커로 사용할 이미지의 세로 크기
-
-            // 마커로 사용할 이미지 주소
-            var image = new google.maps.MarkerImage('http://www.larva.re.kr/home/img/boximage3.png',
-                new google.maps.Size(size_x, size_y),
-                '',
-                '',
-                new google.maps.Size(size_x, size_y));
-
-            var marker;
-            marker = new google.maps.Marker({
-                position: markLocation, // 마커가 위치할 위도와 경도(변수)
-                map: map,
-                icon: image, // 마커로 사용할 이미지(변수)
-                info:'미드레벨 에스컬레이터',//             info: '말풍선 안에 들어갈 내용',
-                title: '미드레벨 에스컬레이터' // 마커에 마우스 포인트를 갖다댔을 때 뜨는 타이틀
-            });
-
-            var content = "미드레벨 에스컬레이터"; // 말풍선 안에 들어갈 내용
-
-            // 마커를 클릭했을 때의 이벤트. 말풍선
-            var infowindow = new google.maps.InfoWindow({ content: content });
-
-            google.maps.event.addListener(marker, "click", function () {
-                infowindow.open(map, marker);
-            });
-
-
-
-        }
-        google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
-
 </head>
 
 <body>
@@ -102,12 +53,25 @@
 
     <div class="detail-container">
         <h4 style="background-color: #333; padding: 10px; margin-bottom: 0;">LOCATION</h4>
-        <div id="map-canvas" style="width:100%; height: 400px; text-align: center; "></div>
-
-
+        <div id="map" style="width:100%; height: 400px; text-align: center; "></div>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC00xmIgXfSjnUT8SVK07wPJJBqcT8AUvk&callback=initMap">
+        </script>
+         <script>
+            // Initialize and add the map
+            function initMap() {
+              // The location of Uluru
+              var uluru = {lat: -25.344, lng: 131.036};
+              // The map, centered at Uluru
+              var map = new google.maps.Map(
+                  document.getElementById('map'), {zoom: 4, center: uluru});
+              // The marker, positioned at Uluru
+              var marker = new google.maps.Marker({position: uluru, map: map});
+            }
+                </script>
     </div>
 
-    <div class="detail-container">
+    <div class="detail-container" id="tableName">
             <h4 style="background-color: #333; padding: 10px; margin-bottom: 0;">REVIEW</h4>
             <div class="review-content">
                 <div class="review-img">
@@ -159,47 +123,37 @@
                 $("#comment_review").focus();
 
             } else{
-                console.log(comment_review);
+                //console.log(comment_review);
+                alert("리뷰가 등록되었습니다.");
             }
-
-            // $.post(location.origin + 'api/:tableId',{
-            //     comment_review : $('#comment_review').val(),
-            //     userID: $('#userID').val()
-            // },function(res){
-            //     if(res){
-            //         alert("리뷰가 등록되었습니다.");
-            //     }
-            // });
+            
+            console.log(location.origin + 'api/' + tableId,{
+                comment_review : $('#comment_review').val(),
+                table_name : $('#tableName').val()}  )
+            $.post(location.origin + '/api/review/' + tableId,{
+                comment_review : $('#comment_review').val(),
+                table_name : 'detail'   
+            }, function(res){
+               console.log(res);
+            });
            
 
         }
 
-    
-
-        // var reviewBtnFunction = function(){
-
-        //     $.post(location.origin + '/api/:tableId', {
-        //         userID: $('#userID').val(),
-        //         userPassword : $('#userPassword').val()
-        //     }, function (res) {
-        //        //console.log(res)
-        //        if(res){
-
-        //            alert("로그인에 성공하였습니다.");
-        //            location.href="/";
-
-        //        } else{
-        //            alert("아이디/비밀번호를 확인해주세요.");
-        //            $("#userID").focus();
-        //        }
-
-        //        $("#userID").focus();
-
-        //     });
-
-        
-
-
+        // var a = '<div class="review-content">' +
+        //         '<div class="review-img">' +
+        //             <img src="/static/img/non_user.png" alt=""  style="margin-top: 15px;">
+        //             <div class="review-text">
+        //                     <div class="review-header" >
+        //                             <div class="review-user" style="margin-top: 15px;">
+        //                                 <p><b>철수(cjftn)</b> | 2018-12-01</p>
+        //                             </div>
+        //                         </div>
+        //                 <p>너무 좋은 경험이었습니다~</p>
+        //             </div>
+        //         </div>
+        //         <hr>
+        //     </div>')
 
     </script>
     

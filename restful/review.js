@@ -23,7 +23,6 @@ router.post('/:tableId', function (req, res) {
     const sess = req.session;
 
     if(!sess) return res.json({'noLogin': true});
-
     const userID = sess.user_id;
     const comment_review = req.body.comment_review;
     const groupDisc = req.body.group_disc;
