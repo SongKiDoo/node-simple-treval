@@ -4,8 +4,8 @@ var models = require('../models/database');
 var jsonfiy = require('../seque-json');
 
 router.get('/', function (req, res) {
-    models.travel_theme.findAll().then(function (theme_res) {
-        models.travel_cource.findAll().then(function (cource_res) {
+    models.travel_theme.findAll({limit: 3}).then(function (theme_res) {
+        models.travel_cource.findAll({limit: 3}).then(function (cource_res) {
             const sess = req.session;
 
             res.render('index.html', {
