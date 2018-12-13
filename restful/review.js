@@ -20,7 +20,11 @@ router.get('/:tableId', function (req, res) {
 router.post('/:tableId', function (req, res) {
     const table_name = req.body.tableName;
     const table_key_id = req.param.tableId;
-    const userID = req.body.userID;
+    const sess = req.session;
+
+    if(!sess) return res.json({'noLogin': true});
+
+    const userID = sess.user_id;
     const comment_review = req.body.comment_review;
     const groupDisc = req.body.group_disc;
 
