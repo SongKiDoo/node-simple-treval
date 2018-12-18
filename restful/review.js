@@ -9,7 +9,7 @@ router.get('/:tableId', function (req, res) {
     const table_key_id = req.param.tableId;
 
     models.review_comment.belongsTo(models.users, {foreignKey: 'user_id'});
-    models.review_comment.find({where: {table_name: table_name, table_key_id: table_key_id, include:[models.users]}}).then(function (result) {
+    models.review_comment.find({where: {table_name: table_name, table_key_id: table_key_id, include:[models.users]}}).then(results => {
         res.json(results);
     }).catch(err => {
         console.error(err);

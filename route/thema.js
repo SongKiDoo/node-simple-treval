@@ -5,9 +5,10 @@ let models = require('../models/database');
 router.get('/', function (req, res) {
     const sess = req.session;
 
-    const customQuery = { theme_id : id };
+    // const customQuery = { where : {} };
+    // if(req.params.theme_id) customQuery.where['theme_id'] = req.params.theme_id;
 
-    models.travel_place.findAll({where : customQuery}).then(function (result) {
+    models.travel_place.findAll().then(function (result) {
         res.render('thema.html', {
             sess: sess,
             themeList: result
